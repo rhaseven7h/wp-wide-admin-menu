@@ -1,0 +1,11 @@
+#adminmenu, #adminmenuback, #adminmenuwrap, .wp-submenu {
+    width: 240px !important;
+}
+
+.wp-not-current-submenu .wp-submenu {
+    left: 240px !important;
+}
+
+#wpcontent, #wpfooter {
+    margin-left: 240px !important;
+}
