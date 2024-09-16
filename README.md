@@ -25,7 +25,7 @@ The **WP Wide Admin Menu** plugin allows you to customize the width of the WordP
 ## Screenshots
 
 1. **Settings Page:**
-   ![Settings Page](screenshot-1.png)
+   ![Settings Page](plugin-screenshot-1.png)
 
 ## Frequently Asked Questions
 
@@ -45,7 +45,7 @@ You can set the width between 100px and 500px.
 
 ## Credits
 
-This plugin uses the [Mustache](https://github.com/bobthecow/mustache.php) templating engine.
+This plugin uses the [Mustache](https://github.com/bobthecow/mustache.php) and the [Smarty](https://www.smarty.net/) templating engines and the [TailwindCSS](https://tailwindcss.com/) CSS framework.
 
 ## License
 

@@ -9,20 +9,39 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'WP_Wide_Admin_Menu' ) ) {
 	class WP_Wide_Admin_Menu {
 		public static mixed $options;
-		public static string $width;
 		public static Mustache_Engine $m;
 
 		public function __construct() {
-			self::$options = get_option( 'wp_wide_admin_menu', array( "width" => "320px" ) );
-			self::$width   = self::$options['width'];
+			$this->define_constants();
 
-			$views_path       = dirname( __FILE__ ) . '/views';
+			self::$options = get_option( 'wp-wide-admin-menu-options', array( "wp-wide-admin-menu-width" => 240 ) );
+
+			$views_path       = WP_WIDE_ADMIN_MENU_PATH . '/views';
 			$mustache_loader  = new Mustache_Loader_FilesystemLoader( $views_path );
 			$mustache_options = array( 'loader' => $mustache_loader );
 			self::$m          = new Mustache_Engine( $mustache_options );
 
-			add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+			add_action( 'admin_init', array( $this, 'register_settings' ) );
 			add_action( 'admin_head', array( $this, 'admin_head' ) );
+			add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+		}
+
+		private function define_constants(): void {
+			define( 'WP_WIDE_ADMIN_MENU_VERSION', '1.0' );
+			define( 'WP_WIDE_ADMIN_MENU_FILE', __FILE__ );
+			define( 'WP_WIDE_ADMIN_MENU_PATH', plugin_dir_path( WP_WIDE_ADMIN_MENU_FILE ) );
+			define( 'WP_WIDE_ADMIN_MENU_URL', plugin_dir_url( WP_WIDE_ADMIN_MENU_FILE ) );
+		}
+
+		public function enqueue_scripts(): void {
+			wp_enqueue_script(
+				'rhaseven7h-tailwind-pluginsandbox-tailwind-css',
+				WP_WIDE_ADMIN_MENU_URL . '/assets/js/tailwindcss/tailwind-v3.4.10.js',
+				array(),
+				WP_WIDE_ADMIN_MENU_VERSION,
+				true
+			);
 		}
 
 		public function admin_menu(): void {
@@ -33,26 +52,55 @@ if ( ! class_exists( 'WP_Wide_Admin_Menu' ) ) {
 				'wp-wide-admin-menu',
 				array(
 					$this,
-					'admin_page'
+					'admin_options_page'
 				),
 				99
 			);
 		}
 
-		public function admin_page(): void {
+		public function admin_options_page(): void {
+			if ( ! current_user_can( 'manage_options' ) ) {
+				return;
+			}
+
+			if ( isset( $_GET['settings-updated'] ) ) {
+				add_settings_error(
+					'wp-wide-admin-menu-options',
+					'wp-wide-admin-menu',
+					esc_html__( 'Settings Saved', 'wp-wide-admin-menu' ),
+					'success'
+				);
+			}
+
 			if ( isset( $_POST['wp_wide_admin_menu'] ) ) {
 				self::$options['width'] = $_POST['wp_wide_admin_menu']['width'];
 				update_option( 'wp_wide_admin_menu', self::$options );
 			}
 
+			ob_start();
+			settings_fields( 'wp-wide-admin-menu-option-group' );
+			$settings_fields = ob_get_clean();
+
+			ob_start();
+			do_settings_sections( 'wp-wide-admin-menu-settings-page-general' );
+			$do_settings_sections = ob_get_clean();
+
+			ob_start();
+			submit_button( esc_html__( 'Save Settings', 'wp-wide-admin-menu' ) );
+			$submit_button = ob_get_clean();
+
 			echo self::$m->render( 'admin-page', array(
-				'width' => self::$width
+				'pageTitle'            => esc_html( get_admin_page_title() ),
+				'width'                => self::$options['wp-wide-admin-menu-width'],
+				'settings_fields'      => $settings_fields,
+				'do_settings_sections' => $do_settings_sections,
+				'submit_button'        => $submit_button
 			) );
 		}
 
 		public function admin_head(): void {
 			echo self::$m->render( 'wp-wide-admin-menu', array(
-				'width' => self::$width
+				'width' => self::$options['wp-wide-admin-menu-width']
 			) );
 		}
 
@@ -66,8 +114,69 @@ if ( ! class_exists( 'WP_Wide_Admin_Menu' ) ) {
 			flush_rewrite_rules();
 		}
 
-		public static function uninstall() {
-			// Uninstall stuff here
+		public static function uninstall(): void {
+			delete_option( 'wp-wide-admin-menu-options' );
+		}
+
+		public function register_settings(): void {
+			register_setting(
+				'wp-wide-admin-menu-option-group',
+				'wp-wide-admin-menu-options',
+				array(
+					'label'             => esc_html__( 'WP Wide Admin Menu', 'wp-wide-admin-menu' ),
+					'description'       => esc_html__( 'Settings for the WP Wide Admin Menu plugin.', 'wp-wide-admin-menu' ),
+					'sanitize_callback' => array( $this, 'sanitize_options' ),
+					'show_in_rest'      => true,
+					'default'           => array(
+						'wp_wide_admin_menu_width' => 240
+					),
+				)
+			);
+			add_settings_section(
+				'wp-wide-admin-menu-settings-section-general',
+				esc_html__( 'General', 'wp-wide-admin-menu' ),
+				array( $this, 'wp_wide_admin_menu_settings_section_general' ),
+				'wp-wide-admin-menu-settings-page-general'
+			);
+			add_settings_field(
+				'wp-wide-admin-menu-width',
+				esc_html__( 'Width', 'wp-wide-admin-menu' ),
+				array( $this, 'wp_wide_admin_menu_width' ),
+				'wp-wide-admin-menu-settings-page-general',
+				'wp-wide-admin-menu-settings-section-general',
+				array( 'label_for' => 'wp-wide-admin-menu-width' )
+			);
+		}
+
+		public function wp_wide_admin_menu_settings_section_general(): void {
+			echo self::$m->render( 'wp-wide-admin-menu-settings-section-general', array(
+				'section_description' => esc_html__( 'General settings for the WP Wide Admin Menu plugin.', 'wp-wide-admin-menu' )
+			) );
+		}
+
+		/** @noinspection PhpUnusedParameterInspection */
+		public function wp_wide_admin_menu_width( $args ): void {
+			$field_value       = isset( self::$options['wp-wide-admin-menu-width'] )
+				? esc_attr( self::$options['wp-wide-admin-menu-width'] )
+				: 240;
+			$field_description = esc_html__( 'The width for the Admin menu.', 'wp-wide-admin-menu' );
+			echo self::$m->render( 'wp-wide-admin-menu-width', array(
+				'field_value'       => $field_value,
+				'field_description' => $field_description
+			) );
+		}
+
+		public function sanitize_options( $options ): array {
+			$options['wp-wide-admin-menu-width'] = sanitize_text_field( $options['wp-wide-admin-menu-width'] );
+			$options['wp-wide-admin-menu-width'] = (int) $options['wp-wide-admin-menu-width'];
+			if ( $options['wp-wide-admin-menu-width'] < 160 ) {
+				$options['wp-wide-admin-menu-width'] = 160;
+			}
+			if ( $options['wp-wide-admin-menu-width'] > 512 ) {
+				$options['wp-wide-admin-menu-width'] = 512;
+			}
+
+			return $options;
 		}
 	}
 }

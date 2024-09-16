@@ -1,10 +1,14 @@
-<h1>WP Wide Admin</h1>
-<p>
-    WordPress Wide Admin Menu is a plugin that allows you to customize the width of the WordPress admin menu.
-</p>
-<hr/>
-<form action="">
-    <label for="width">Width:</label>
-    <input type="text" name="width" id="width" value="{{ width }}" />
-    <input type="submit" value="Save" />
+<div class="wrap">
+    <h1>{{pageTitle}}</h1>
+</div>
+
+<!--suppress HtmlUnknownTarget -->
+<form action="options.php" method="post" class="wrap [&_h2]:text-xl">
+    <div class="mt-4 pt-2 border-t border-gray-300">
+        {{{settings_fields}}}
+        {{{do_settings_sections}}}
+    </div>
+    <div class="border-t border-gray-300">
+        {{{submit_button}}}
+    </div>
 </form>
