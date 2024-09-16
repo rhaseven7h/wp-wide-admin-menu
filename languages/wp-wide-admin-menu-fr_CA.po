@@ -1,0 +1,74 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Wide Admin Menu\n"
+"POT-Creation-Date: 2024-09-16 16:34-0600\n"
+"PO-Revision-Date: 2024-09-16 16:40-0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_CA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wp-wide-admin-menu.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+
+#: class.wp-wide-admin-menu.php:52 class.wp-wide-admin-menu.php:53
+msgid "WP Wide Admin"
+msgstr "WP Wide Admin"
+
+#: class.wp-wide-admin-menu.php:89
+msgid "Settings Saved"
+msgstr "Paramètres sauvegardés"
+
+#: class.wp-wide-admin-menu.php:108
+msgid "Save Settings"
+msgstr "Sauvegarder les réglages"
+
+#. Plugin Name of the plugin/theme
+#: class.wp-wide-admin-menu.php:125
+msgid "WP Wide Admin Menu"
+msgstr "WP Wide Admin Menu"
+
+#: class.wp-wide-admin-menu.php:126
+msgid "Settings for the WP Wide Admin Menu plugin."
+msgstr "Paramètres du plugin WP Wide Admin Menu."
+
+#: class.wp-wide-admin-menu.php:136
+msgid "General"
+msgstr "Général"
+
+#: class.wp-wide-admin-menu.php:142
+msgid "Width"
+msgstr "Largeur"
+
+#: class.wp-wide-admin-menu.php:165
+msgid "General settings for the WP Wide Admin Menu plugin."
+msgstr "Paramètres généraux du plugin WP Wide Admin Menu."
+
+#: class.wp-wide-admin-menu.php:174
+msgid "The width for the Admin menu."
+msgstr "La largeur du menu d'administration."
+
+#. Plugin URI of the plugin/theme
+msgid "http://rhaseven7h.com/gmm-mail-from"
+msgstr "http://rhaseven7h.com/gmm-mail-from"
+
+#. Description of the plugin/theme
+msgid "A simple plugin for WordPress to widen the Admin menu."
+msgstr "Un simple plugin pour WordPress pour élargir le menu d'administration."
+
+#. Author of the plugin/theme
+msgid "Gabriel Medina"
+msgstr "Gabriel Medina"
+
+#. Author URI of the plugin/theme
+msgid "http://rhaseven7h.com/author/gmedina"
+msgstr "http://rhaseven7h.com/author/gmedina"
