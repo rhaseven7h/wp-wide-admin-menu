@@ -14,7 +14,10 @@ if ( ! class_exists( 'WP_Wide_Admin_Menu' ) ) {
 		public function __construct() {
 			$this->define_constants();
 
-			self::$options = get_option( 'wp-wide-admin-menu-options', array( "wp-wide-admin-menu-width" => 240 ) );
+			self::$options = get_option(
+				'wp-wide-admin-menu-options',
+				array( "wp-wide-admin-menu-width" => 240 )
+			);
 
 			$views_path       = WP_WIDE_ADMIN_MENU_PATH . '/views';
 			$mustache_loader  = new Mustache_Loader_FilesystemLoader( $views_path );
@@ -34,20 +37,10 @@ if ( ! class_exists( 'WP_Wide_Admin_Menu' ) ) {
 			define( 'WP_WIDE_ADMIN_MENU_URL', plugin_dir_url( WP_WIDE_ADMIN_MENU_FILE ) );
 		}
 
-		public function enqueue_scripts(): void {
-			wp_enqueue_script(
-				'rhaseven7h-tailwind-pluginsandbox-tailwind-css',
-				WP_WIDE_ADMIN_MENU_URL . '/assets/js/tailwindcss/tailwind-v3.4.10.js',
-				array(),
-				WP_WIDE_ADMIN_MENU_VERSION,
-				true
-			);
-		}
-
 		public function admin_menu(): void {
 			add_options_page(
-				'WP Wide Admin',
-				'WP Wide Admin',
+				esc_html__( 'WP Wide Admin', 'wp-wide-admin-menu' ),
+				esc_html__( 'WP Wide Admin', 'wp-wide-admin-menu' ),
 				'manage_options',
 				'wp-wide-admin-menu',
 				array(
@@ -55,6 +48,22 @@ if ( ! class_exists( 'WP_Wide_Admin_Menu' ) ) {
 					'admin_options_page'
 				),
 				99
+			);
+		}
+
+		public function admin_head(): void {
+			echo self::$m->render( 'wp-wide-admin-menu', array(
+				'width' => self::$options['wp-wide-admin-menu-width']
+			) );
+		}
+
+		public function enqueue_scripts(): void {
+			wp_enqueue_script(
+				'wp-wide-admin-menu-tailwind-css',
+				WP_WIDE_ADMIN_MENU_URL . '/assets/js/tailwindcss/tailwind-v3.4.10.js',
+				array(),
+				WP_WIDE_ADMIN_MENU_VERSION,
+				true
 			);
 		}
 
@@ -98,26 +107,6 @@ if ( ! class_exists( 'WP_Wide_Admin_Menu' ) ) {
 			) );
 		}
 
-		public function admin_head(): void {
-			echo self::$m->render( 'wp-wide-admin-menu', array(
-				'width' => self::$options['wp-wide-admin-menu-width']
-			) );
-		}
-
-		public static function activate(): void {
-			flush_rewrite_rules();
-			update_option( 'rewrite_rules', '' );
-		}
-
-		public static function deactivate(): void {
-			update_option( 'rewrite_rules', '' );
-			flush_rewrite_rules();
-		}
-
-		public static function uninstall(): void {
-			delete_option( 'wp-wide-admin-menu-options' );
-		}
-
 		public function register_settings(): void {
 			register_setting(
 				'wp-wide-admin-menu-option-group',
@@ -148,6 +137,19 @@ if ( ! class_exists( 'WP_Wide_Admin_Menu' ) ) {
 			);
 		}
 
+		public function sanitize_options( $options ): array {
+			$options['wp-wide-admin-menu-width'] = sanitize_text_field( $options['wp-wide-admin-menu-width'] );
+			$options['wp-wide-admin-menu-width'] = (int) $options['wp-wide-admin-menu-width'];
+			if ( $options['wp-wide-admin-menu-width'] < 160 ) {
+				$options['wp-wide-admin-menu-width'] = 160;
+			}
+			if ( $options['wp-wide-admin-menu-width'] > 512 ) {
+				$options['wp-wide-admin-menu-width'] = 512;
+			}
+
+			return $options;
+		}
+
 		public function wp_wide_admin_menu_settings_section_general(): void {
 			echo self::$m->render( 'wp-wide-admin-menu-settings-section-general', array(
 				'section_description' => esc_html__( 'General settings for the WP Wide Admin Menu plugin.', 'wp-wide-admin-menu' )
@@ -166,17 +168,18 @@ if ( ! class_exists( 'WP_Wide_Admin_Menu' ) ) {
 			) );
 		}
 
-		public function sanitize_options( $options ): array {
-			$options['wp-wide-admin-menu-width'] = sanitize_text_field( $options['wp-wide-admin-menu-width'] );
-			$options['wp-wide-admin-menu-width'] = (int) $options['wp-wide-admin-menu-width'];
-			if ( $options['wp-wide-admin-menu-width'] < 160 ) {
-				$options['wp-wide-admin-menu-width'] = 160;
-			}
-			if ( $options['wp-wide-admin-menu-width'] > 512 ) {
-				$options['wp-wide-admin-menu-width'] = 512;
-			}
+		public static function activate(): void {
+			flush_rewrite_rules();
+			update_option( 'rewrite_rules', '' );
+		}
 
-			return $options;
+		public static function deactivate(): void {
+			update_option( 'rewrite_rules', '' );
+			flush_rewrite_rules();
+		}
+
+		public static function uninstall(): void {
+			delete_option( 'wp-wide-admin-menu-options' );
 		}
 	}
 }
