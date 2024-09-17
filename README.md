@@ -1,8 +1,19 @@
-# WP Wide Admin Menu Plugin
+# Wide Admin Menu
+
+Contributors: rhaseventh
+Tags: admin, menu, width, customize
+Requires at least: 4.7
+Tested up to: 6.6
+Stable tag: 1.0
+Requires PHP: 7.0
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
+The Wide Admin Menu plugin allows you to customize the width of the WordPress admin menu.
 
 ## Description
 
-The **WP Wide Admin Menu** plugin allows you to customize the width of the WordPress admin menu. This can be particularly useful for users who need more space for menu items or prefer a wider layout.
+The **Wide Admin Menu** plugin allows you to customize the width of the WordPress admin menu. This can be particularly useful for users who need more space for menu items or prefer a wider layout.
 
 ## Features
 
@@ -18,20 +29,20 @@ The **WP Wide Admin Menu** plugin allows you to customize the width of the WordP
 
 ## Usage
 
-1. Go to `Settings > WP Wide Admin` in the WordPress admin menu.
+1. Go to `Settings > Wide Admin Menu` in the WordPress admin menu.
 2. Adjust the width of the admin menu using the provided input field.
 3. Click `Save` to apply the changes.
 
 ## Screenshots
 
 1. **Settings Page:**
-   ![Settings Page](plugin-screenshot-1.png)
+   ![Settings Page](assets/images/plugin-screenshot-1.png)
 
 ## Frequently Asked Questions
 
 ### How do I change the width of the admin menu?
 
-Navigate to `Settings > WP Wide Admin`, adjust the width using the input field, and click `Save`.
+Navigate to `Settings > Wide Admin Menu`, adjust the width using the input field, and click `Save`.
 
 ### What is the minimum and maximum width I can set?
 

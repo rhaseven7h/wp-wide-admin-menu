@@ -1,9 +1,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Wide Admin Menu\n"
-"POT-Creation-Date: 2024-09-16 16:34-0600\n"
-"PO-Revision-Date: 2024-09-16 16:37-0600\n"
+"Project-Id-Version: Wide Admin Menu\n"
+"POT-Creation-Date: 2024-09-17 03:16-0600\n"
+"PO-Revision-Date: 2024-09-17 03:17-0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_MX\n"
@@ -13,53 +13,50 @@ msgstr ""
 "X-Generator: Poedit 3.5\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
-"X-Poedit-WPHeader: wp-wide-admin-menu.php\n"
+"X-Poedit-WPHeader: wide-admin-menu.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 
-#: class.wp-wide-admin-menu.php:52 class.wp-wide-admin-menu.php:53
-msgid "WP Wide Admin"
-msgstr "WP Wide Admin"
+#. Plugin Name of the plugin/theme
+#: class.wide-admin-menu.php:56 class.wide-admin-menu.php:57
+#: class.wide-admin-menu.php:123
+msgid "Wide Admin Menu"
+msgstr "Wide Admin Menu"
 
-#: class.wp-wide-admin-menu.php:89
+#: class.wide-admin-menu.php:93
 msgid "Settings Saved"
 msgstr "Ajustes guardados"
 
-#: class.wp-wide-admin-menu.php:108
+#: class.wide-admin-menu.php:107
 msgid "Save Settings"
 msgstr "Guardar Ajustes"
 
-#. Plugin Name of the plugin/theme
-#: class.wp-wide-admin-menu.php:125
-msgid "WP Wide Admin Menu"
-msgstr "Menu WP Wide Admin"
+#: class.wide-admin-menu.php:124
+msgid "Settings for the Wide Admin Menu plugin."
+msgstr "Configuración del plugin Wide Admin Menu."
 
-#: class.wp-wide-admin-menu.php:126
-msgid "Settings for the WP Wide Admin Menu plugin."
-msgstr "Configuración del plugin WP Wide Admin Menu."
-
-#: class.wp-wide-admin-menu.php:136
+#: class.wide-admin-menu.php:134
 msgid "General"
 msgstr "General"
 
-#: class.wp-wide-admin-menu.php:142
+#: class.wide-admin-menu.php:140
 msgid "Width"
 msgstr "Ancho"
 
-#: class.wp-wide-admin-menu.php:165
-msgid "General settings for the WP Wide Admin Menu plugin."
-msgstr "Configuración general del plugin WP Wide Admin Menu."
+#: class.wide-admin-menu.php:164
+msgid "General settings for the Wide Admin Menu plugin."
+msgstr "Configuración general del plugin Wide Admin Menu."
 
-#: class.wp-wide-admin-menu.php:174
+#: class.wide-admin-menu.php:175
 msgid "The width for the Admin menu."
 msgstr "La anchura del menú Admin."
 
 #. Plugin URI of the plugin/theme
-msgid "http://rhaseven7h.com/gmm-mail-from"
-msgstr "http://rhaseven7h.com/gmm-mail-from"
+msgid "https://rhaseven7h.com/wordpress-wide-admin-menu-plugin/"
+msgstr "https://rhaseven7h.com/wordpress-wide-admin-menu-plugin/"
 
 #. Description of the plugin/theme
 msgid "A simple plugin for WordPress to widen the Admin menu."
