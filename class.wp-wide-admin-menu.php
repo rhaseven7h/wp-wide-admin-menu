@@ -86,14 +86,9 @@ if ( ! class_exists( 'WP_Wide_Admin_Menu' ) ) {
 				add_settings_error(
 					'wp-wide-admin-menu-options',
 					'wp-wide-admin-menu',
-					__( 'Settings Saved', 'wp-wide-admin-menu' ),
+					esc_html__( 'Settings Saved', 'wp-wide-admin-menu' ),
 					'success'
 				);
-			}
-
-			if ( isset( $_POST['wp_wide_admin_menu'] ) ) {
-				self::$options['width'] = $_POST['wp_wide_admin_menu']['width'];
-				update_option( 'wp_wide_admin_menu', self::$options );
 			}
 
 			ob_start();
