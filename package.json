@@ -1,0 +1,33 @@
+{
+  "name": "wide-admin-menu",
+  "version": "1.0.0",
+  "description": "WordPress Wide Admin Menu Plugin - Support package.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tailwindcss -i ./assets/css/styles.scss -o ./assets/css/styles.dist.css",
+    "build:watch": "npx tailwindcss -i ./assets/css/styles.scss -o ./assets/css/styles.dist.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/rhaseven7h/wp-wide-admin-menu.git"
+  },
+  "keywords": [
+    "wordpress",
+    "admin",
+    "menu",
+    "customization"
+  ],
+  "author": "Gabriel Medina <rha7.com@gmail.com>",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/rhaseven7h/wp-wide-admin-menu/issues"
+  },
+  "homepage": "https://github.com/rhaseven7h/wp-wide-admin-menu#readme",
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.9",
+    "@tailwindcss/typography": "^0.5.15",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.11"
+  }
+}
