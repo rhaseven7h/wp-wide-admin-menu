@@ -72,12 +72,11 @@ if ( ! class_exists( 'Wide_Admin_Menu' ) ) {
 		}
 
 		public function enqueue_scripts(): void {
-			wp_enqueue_script(
-				'wide-admin-menu-tailwind-css',
-				WIDE_ADMIN_MENU_URL . '/assets/js/tailwindcss/tailwind-v3.4.10.js',
+			wp_enqueue_style(
+				'wide-admin-menu-styles',
+				WIDE_ADMIN_MENU_URL . '/assets/css/styles.dist.css',
 				array(),
-				WIDE_ADMIN_MENU_VERSION,
-				true
+				WIDE_ADMIN_MENU_VERSION
 			);
 		}
 
