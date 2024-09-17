@@ -48,12 +48,6 @@ Navigate to `Settings > Wide Admin Menu`, adjust the width using the input field
 
 You can set the width between 100px and 500px.
 
-## Changelog
-
-### 1.0.0
-
-- Initial release.
-
 ## Credits
 
 This plugin uses the [Mustache](https://github.com/bobthecow/mustache.php) and the [Smarty](https://www.smarty.net/) templating engines and the [TailwindCSS](https://tailwindcss.com/) CSS framework.
