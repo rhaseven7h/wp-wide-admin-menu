@@ -1,3 +1,33 @@
+commit 3c14192fd32536cddae93b4baf6d5df2c954c6d6
+Merge: 886dbaf 3938a32
+Author: Gabriel Medina <rha7.com@gmail.com>
+Date:   Wed Sep 18 01:38:21 2024 -0600
+
+    Merge pull request #7 from rhaseven7h/class-separation
+    
+    Separation completed.
+
+commit 3938a3223b7c5fa609ad69d9a6bfd251e11d5b4f
+Author: Gabriel Medina <rha7.com@gmail.com>
+Date:   Wed Sep 18 01:31:30 2024 -0600
+
+    Separation completed.
+
+commit 886dbaf9a5f9fb867dc84da24bc81c46ebb0ecef
+Merge: 6b1767c 768ac0e
+Author: Gabriel Medina <rha7.com@gmail.com>
+Date:   Tue Sep 17 17:26:53 2024 -0600
+
+    Merge pull request #5 from rhaseven7h/small-fixes
+    
+    Small fixes, versions and changelog.
+
+commit 768ac0e608a26f52a6a402a9f3e5bb40da4bcdd8
+Author: Gabriel Medina <rha7.com@gmail.com>
+Date:   Tue Sep 17 04:20:20 2024 -0600
+
+    Small fixes, versions and changelog.
+
 commit 6b1767c12c7bc027d44caac7ccb55bc40f6820a5
 Author: Gabriel Medina <rha7.com@gmail.com>
 Date:   Tue Sep 17 04:03:54 2024 -0600

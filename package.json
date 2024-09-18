@@ -1,6 +1,6 @@
 {
   "name": "wide-admin-menu",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "WordPress Wide Admin Menu Plugin - Support package.",
   "main": "index.js",
   "scripts": {

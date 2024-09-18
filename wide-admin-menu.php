@@ -4,7 +4,7 @@
  * Plugin Name: Wide Admin Menu
  * Plugin URI: https://rhaseven7h.com/wordpress-wide-admin-menu-plugin/
  * Description: A simple plugin for WordPress to widen the Admin menu.
- * Version: 1.0.1
+ * Version: 1.1.0
  * Author: Gabriel Medina
  * Author URI: http://rhaseven7h.com/author/gmedina
  * License: GPL2 or later

@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Wide Admin Menu\n"
-"POT-Creation-Date: 2024-09-17 03:16-0600\n"
-"PO-Revision-Date: 2024-09-17 03:15-0600\n"
+"POT-Creation-Date: 2024-09-18 01:34-0600\n"
+"PO-Revision-Date: 2024-09-18 01:34-0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,39 +20,41 @@ msgstr ""
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
-"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-1: node_modules\n"
+"X-Poedit-SearchPathExcluded-2: vendor\n"
 
 #. Plugin Name of the plugin/theme
-#: class.wide-admin-menu.php:56 class.wide-admin-menu.php:57
-#: class.wide-admin-menu.php:123
+#: class.wide-admin-menu-settings-page.php:23
+#: class.wide-admin-menu-settings-page.php:24
+#: class.wide-admin-menu-settings-page.php:74
 msgid "Wide Admin Menu"
 msgstr ""
 
-#: class.wide-admin-menu.php:93
+#: class.wide-admin-menu-settings-page.php:44
 msgid "Settings Saved"
 msgstr ""
 
-#: class.wide-admin-menu.php:107
+#: class.wide-admin-menu-settings-page.php:58
 msgid "Save Settings"
 msgstr ""
 
-#: class.wide-admin-menu.php:124
+#: class.wide-admin-menu-settings-page.php:75
 msgid "Settings for the Wide Admin Menu plugin."
 msgstr ""
 
-#: class.wide-admin-menu.php:134
+#: class.wide-admin-menu-settings-page.php:85
 msgid "General"
 msgstr ""
 
-#: class.wide-admin-menu.php:140
+#: class.wide-admin-menu-settings-page.php:91
 msgid "Width"
 msgstr ""
 
-#: class.wide-admin-menu.php:164
+#: class.wide-admin-menu-settings-page.php:115
 msgid "General settings for the Wide Admin Menu plugin."
 msgstr ""
 
-#: class.wide-admin-menu.php:175
+#: class.wide-admin-menu-settings-page.php:124
 msgid "The width for the Admin menu."
 msgstr ""
 
